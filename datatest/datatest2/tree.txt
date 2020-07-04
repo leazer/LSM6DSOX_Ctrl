@@ -1,0 +1,14 @@
+F1_MEAN_on_ACC_X <= 0.728516
+|   F14_PositiveZeroCross_on_GY_Y <= 2: STAND (55.0/2.0)
+|   F14_PositiveZeroCross_on_GY_Y > 2
+|   |   F13_PositiveZeroCross_on_GY_X <= 0: STAND (2.0)
+|   |   F13_PositiveZeroCross_on_GY_X > 0
+|   |   |   F1_MEAN_on_ACC_X <= -0.649414: DOWN (11.0)
+|   |   |   F1_MEAN_on_ACC_X > -0.649414: UP (24.0)
+F1_MEAN_on_ACC_X > 0.728516
+|   F14_PositiveZeroCross_on_GY_Y <= 0: STAND (7.0)
+|   F14_PositiveZeroCross_on_GY_Y > 0: LEFT (34.0)
+
+Number of Leaves  : 	6
+
+Size of the tree : 	11

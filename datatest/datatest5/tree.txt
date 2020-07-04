@@ -1,0 +1,23 @@
+J48 pruned tree
+------------------
+
+F10_VAR_on_GY_X <= 0.295654: stand (74.0/1.0)
+F10_VAR_on_GY_X > 0.295654
+|   F1_MEAN_on_ACC_X <= 0.014305
+|   |   F2_MEAN_on_ACC_Y <= -0.283691
+|   |   |   F4_MEAN_on_GY_X <= -4.20313: up (3.0)
+|   |   |   F4_MEAN_on_GY_X > -4.20313: down (36.0/1.0)
+|   |   F2_MEAN_on_ACC_Y > -0.283691
+|   |   |   F12_VAR_on_GY_Z <= 3.30273: up (17.0)
+|   |   |   F12_VAR_on_GY_Z > 3.30273: left (3.0/1.0)
+|   F1_MEAN_on_ACC_X > 0.014305
+|   |   F10_VAR_on_GY_X <= 48.9375
+|   |   |   F9_VAR_on_ACC_Z <= 4.22656: left (40.0)
+|   |   |   F9_VAR_on_ACC_Z > 4.22656
+|   |   |   |   F14_PositiveZeroCross_on_ACC_Y <= 2: up (3.0)
+|   |   |   |   F14_PositiveZeroCross_on_ACC_Y > 2: left (3.0)
+|   |   F10_VAR_on_GY_X > 48.9375: up (15.0)
+
+Number of Leaves  : 	9
+
+Size of the tree : 	17

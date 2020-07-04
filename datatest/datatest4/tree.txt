@@ -1,0 +1,20 @@
+F1_MEAN_on_ACC_X <= -0.85498
+|   F10_ZeroCross_on_GY_X <= 4
+|   |   F23_NegativeZeroCross_on_GY_Z <= 0: stand (2.0)
+|   |   F23_NegativeZeroCross_on_GY_Z > 0: down (19.0)
+|   F10_ZeroCross_on_GY_X > 4: stand (2.0)
+F1_MEAN_on_ACC_X > -0.85498
+|   F3_MEAN_on_ACC_Z <= -1.00977: up (17.0)
+|   F3_MEAN_on_ACC_Z > -1.00977
+|   |   F11_ZeroCross_on_GY_Y <= 2: stand (27.0/2.0)
+|   |   F11_ZeroCross_on_GY_Y > 2
+|   |   |   F7_ZeroCross_on_ACC_X <= 12
+|   |   |   |   F18_NegativeZeroCross_on_ACC_X <= 2
+|   |   |   |   |   F22_NegativeZeroCross_on_GY_Y <= 2: stand (5.0)
+|   |   |   |   |   F22_NegativeZeroCross_on_GY_Y > 2: left (2.0)
+|   |   |   |   F18_NegativeZeroCross_on_ACC_X > 2: left (16.0)
+|   |   |   F7_ZeroCross_on_ACC_X > 12: up (2.0)
+
+Number of Leaves  : 	9
+
+Size of the tree : 	17
