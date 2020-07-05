@@ -58,42 +58,50 @@ void BSP_loop(void)
 
 //主逻辑
 static char data[100];
+#define BADMINTON
+//#define FREEFALL_DETECTION
+//#define POSITION_RECOGNITION
+
 void APP_loop(void)
 {
-    static uint8_t last_mlc1,last_fsm1;
+    static uint8_t last_mlc1;
     
     lsm6dsox_all_sources_get(&dev_ctx, &status);
     if (status.mlc1&&!last_mlc1){
         lsm6dsox_mlc_out_get(&dev_ctx, mlc_out);
         switch(mode){
           case 1:   //LED 显示动作
-//          LED_On_Set(LALL,mlc_out[0],700);
-//          switch(mlc_out[0]){
-//              case 1:
-//                  usb_printf("传感器方向 向左\n");
-//              break;
-//              case 2:
-//                  usb_printf("传感器方向 向右\n");
-//              break;
-//              case 3:
-//                  usb_printf("传感器方向 向上\n");
-//              break;
-//              case 4:
-//                  usb_printf("传感器方向 向下\n");
-//              break;
-//              case 5:
-//                  usb_printf("传感器方向 正向\n");
-//              break;
-//              case 6:
-//                  usb_printf("传感器方向 反向\n");
-//              break;
-//          }
+#ifdef POSITION_RECOGNITION
+              LED_On_Set(LALL,mlc_out[0],700);
+              switch(mlc_out[0]){
+                  case 1:
+                      usb_printf("传感器方向 向左\n");
+                  break;
+                  case 2:
+                      usb_printf("传感器方向 向右\n");
+                  break;
+                  case 3:
+                      usb_printf("传感器方向 向上\n");
+                  break;
+                  case 4:
+                      usb_printf("传感器方向 向下\n");
+                  break;
+                  case 5:
+                      usb_printf("传感器方向 正向\n");
+                  break;
+                  case 6:
+                      usb_printf("传感器方向 反向\n");
+                  break;
+              }
+#endif
+#ifdef  BADMINTON
               if(mlc_out[0] == 4)               //下
                   LED_On_Set(LALL,YELLOW,400);
               else if(mlc_out[0] == 12)          //上
                   LED_On_Set(LALL,PURPLE,400);
               else if(mlc_out[0] == 8)          //左
                   LED_On_Set(LALL,YCAN,  400);
+
           break;
           case 2:   //串口输出
               if(mlc_out[0] == 4)
@@ -117,12 +125,16 @@ void APP_loop(void)
           break;
         }
     }
+#endif
     last_mlc1 = status.mlc1;
     
-//    if (status.fsm1&&!last_fsm1){   
-//        LED_On_Set(LALL,PURPLE,1000);
-//    }
-//    last_fsm1 = status.fsm1;
+#ifdef FREEFALL_DETECTION
+    static  uint8_t last_fsm1;
+    if (status.fsm1&&!last_fsm1){   
+        LED_On_Set(LALL,PURPLE,1000);
+    }
+    last_fsm1 = status.fsm1;
+#endif
     button_ticks();
 }
 
